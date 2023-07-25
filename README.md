@@ -30,7 +30,8 @@ La solución consiste en los siguientes contenedores:
 - **[X] Servicio de Autenticación**: Maneja la autenticación y autorización de usuarios.
 
 # Componentes
-![image](https://github.com/jgutierrez-pragmatico/assessment-cv/assets/117243510/87076ae8-f523-4f21-8d00-8b8ded546d0d)
+![image](https://github.com/jgutierrez-pragmatico/assessment-cv/assets/117243510/0b656666-e015-4f17-ba08-ccba4157ad7b)
+
 
 # Descripción de la solución
 
