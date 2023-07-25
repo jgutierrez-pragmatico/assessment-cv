@@ -1,4 +1,4 @@
-# assessment-cv
+# Assessment-cv
 El repositorio es para la gestión de CV y certificaciones de los candidatos
 
 # Contexto
@@ -42,4 +42,28 @@ La solución consiste en los siguientes contenedores:
 - El front  realiza una llamada al API Gateway.
 - La aplicación extrae el token de identificación del JWT y pasa el token en la cabecera de autorización de la API.
 - La pasarela de API invoca el autorizador Lambda personalizado y pasa el token para su posterior validación (servicios internos).
+
+# Estilo de arquitectura 
+### Serverless
+**- Ventajas:**
+
+1 - **Sin administración de servidores:** No es necesario provisionar, mantener o administrar servidores. AWS lo hace por nosotros.
+
+2 - **Escalabilidad automática:** La infraestructura serverless se escala automáticamente en función de la demanda.
+
+3 - **Costo eficiente:** Con el modelo de precios de pago por uso, sólo pagas por el tiempo de ejecución de tus funciones. No pagas por la infraestructura ociosa.
+
+4 - **Alta disponibilidad:** Los proveedores de servicios en la nube ofrecen alta disponibilidad y recuperación ante desastres con sus servicios serverless.
+
+
+# Observabilidad 
+
+Desacople de componentes: En una arquitectura serverless basada en eventos en AWS, utilizaremos los servicios:
+
+- Con **CloudWatch** supervisamos  métricas de rendimiento de tus funciones Lambda, colas SQS y DynamoDB. crear alarmas que se activan si alguna de estas métricas supera un umbral que podría indicar un problema. (umbrales de procesamiento o memoria)
+
+- Con usar **X-Ray** rastreamos las peticiones que ingresan hasta que se completan, pasando por todas las funciones Lambda, SQS y DynamoDB que se utilizan para procesar la solicitud. Esto nos facilita identificar cuellos de botella y problemas de rendimiento.
+
+- los logs se enviaran desde las funciones Lambda a **CloudWatch Logs.** Estos logs pueden incluir información sobre eventos de transacciones, errores y cualquier otra cosa que pueda ser útil para entender lo que está pasando en tu sistema. con el fin de implementar modelos predictivos
+
   
